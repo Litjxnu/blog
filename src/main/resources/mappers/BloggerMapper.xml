@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+	"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="cn.jxnu.blog.mapper.BloggerMapper" >
+  <select id="selectMes" resultType="cn.jxnu.blog.entity.Blogger" >
+    SELECT 
+    	blogger_id bloggerId, 
+    	blogger_name bloggerName, 
+    	blogger_pass bloggerPass, 
+    	blogger_nickname bloggerNickname, 
+    	blogger_email bloggerEmail, 
+    	blogger_avatar bloggerAvatar, 
+    	blogger_last_login_ip bloggerLastLoginIp, 
+    	blogger_register_time bloggerRegisterTime, 
+    	blogger_last_login_time bloggerLastLoginTime, 
+    	blogger_status bloggerStatus
+    FROM 
+    	blogger
+  </select>
+  
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from user
+    where blogger_id = #{bloggerId}
+  </delete>
+  
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id" 
+   		parameterType="cn.jxnu.blog.entity.Blogger" >
+    insert into user (blogger_id, blogger_name, blogger_pass, 
+      blogger_nickname, blogger_email, 
+      blogger_avatar, blogger_last_login_ip, blogger_register_time, 
+      blogger_last_login_time, blogger_status)
+    values (#{bloggerId}, #{bloggerName}, #{bloggerPass}, 
+      #{bloggerNickname}, #{bloggerEmail}, 
+      #{bloggerAvatar}, #{bloggerLastLoginIp}, #{bloggeregisterTime}, 
+      #{bloggerLastLoginTime}, #{bloggerStatus})
+  </insert>
+  
+  <update id="updateById" parameterType="java.lang.Integer" >
+    update user
+    <set >
+      <if test="bloggerName != null" >
+        blogger_name = #{bloggerName},
+      </if>
+      <if test="bloggerPass != null" >
+        blogger_pass = #{bloggerPass},
+      </if>
+      <if test="bloggerNickname != null" >
+        blogger_nickname = #{bloggerNickname},
+      </if>
+      <if test="bloggerEmail != null" >
+        blogger_email = #{bloggerEmail},
+      </if>
+      <if test="bloggerAvatar != null" >
+        blogger_avatar = #{bloggerAvatar},
+      </if>
+      <if test="bloggerLastLoginIp != null" >
+        blogger_last_login_ip = #{bloggerLastLoginIp},
+      </if>
+      <if test="bloggeregisterTime != null" >
+        blogger_register_time = #{bloggeregisterTime},
+      </if>
+      <if test="bloggerLastLoginTime != null" >
+        blogger_last_login_time = #{bloggerLastLoginTime},
+      </if>
+      <if test="bloggerStatus != null" >
+        blogger_status = #{bloggerStatus},
+      </if>
+    </set>
+    where blogger_id = #{bloggerId}
+  </update>
+</mapper>

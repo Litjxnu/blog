@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" 
+	"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="cn.jxnu.blog.mapper.ArticleMapper" >
+
+  <select id="listArticle" resultType="cn.jxnu.blog.entity.Article">
+  	SELECT 
+    	article_id articleTd, 
+    	article_blogger_id articleBloggerId, 
+    	article_menu_id articleMenuId, 
+    	article_title articleTitle, 
+    	article_tag_ids articleTagIds, 
+    	article_view_count articleViewCount, 
+    	article_comment_count articleCommentCount, 
+    	article_like_count articleLikeCount, 
+    	article_post_time articlePostTime, 
+    	article_update_time articleUpdateTime, 
+    	article_is_comment articleIsComment, 
+    	article_status articleStatus, 
+    	article_order articleOrder, 
+    	article_content articleContent
+    FROM 
+    	article 
+    ORDER BY article_view_count DESC 
+    <if test="start!=null and end!=null">
+		limit #{start},#{end}
+	</if>
+  </select>
+  
+  <select id="selectByDate" resultType="cn.jxnu.blog.entity.Article">
+  	SELECT 
+    	article_id articleTd, 
+    	article_blogger_id articleBloggerId, 
+    	article_menu_id articleMenuId, 
+    	article_title articleTitle, 
+    	article_tag_ids articleTagIds, 
+    	article_view_count articleViewCount, 
+    	article_comment_count articleCommentCount, 
+    	article_like_count articleLikeCount, 
+    	article_post_time articlePostTime, 
+    	article_update_time articleUpdateTime, 
+    	article_is_comment articleIsComment, 
+    	article_status articleStatus, 
+    	article_order articleOrder, 
+    	article_content articleContent
+    FROM 
+    	article 
+    ORDER BY article_post_time DESC 
+  </select>
+  
+  <select id="selectByMenuId" resultType="cn.jxnu.blog.entity.Article">
+  	SELECT 
+    	article_id articleTd, 
+    	article_blogger_id articleBloggerId, 
+    	article_menu_id articleMenuId, 
+    	article_title articleTitle, 
+    	article_tag_ids articleTagIds, 
+    	article_view_count articleViewCount, 
+    	article_comment_count articleCommentCount, 
+    	article_like_count articleLikeCount, 
+    	article_post_time articlePostTime, 
+    	article_update_time articleUpdateTime, 
+    	article_is_comment articleIsComment, 
+    	article_status articleStatus, 
+    	article_order articleOrder, 
+    	article_content articleContent
+    FROM 
+    	article 
+    WHERE 
+    	article_menu_id = #{articleMenuId}
+  </select>
+  
+  <select id="selectById" resultType="cn.jxnu.blog.entity.Article" parameterType="java.lang.Integer" >
+    SELECT 
+    	article_id articleTd, 
+    	article_blogger_id articleBloggerId, 
+    	article_menu_id articleMenuId, 
+    	article_title articleTitle, 
+    	article_tag_ids articleTagIds, 
+    	article_view_count articleViewCount, 
+    	article_comment_count articleCommentCount, 
+    	article_like_count articleLikeCount, 
+    	article_post_time articlePostTime, 
+    	article_update_time articleUpdateTime, 
+    	article_is_comment articleIsComment, 
+    	article_status articleStatus, 
+    	article_order articleOrder, 
+    	article_content articleContent
+    FROM 
+    	article
+    WHERE 
+    	article_id = #{articleId}
+  </select>
+  
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from article
+    where article_id = #{articleId}
+  </delete>
+  
+  <insert id="insert" useGeneratedKeys="true" keyProperty="id"  
+  		parameterType="cn.jxnu.blog.entity.Article" >
+    insert into article (article_id, article_blogger_id, article_menu_id, article_title, 
+      article_tag_ids, article_view_count, article_comment_count, 
+      article_like_count, article_post_time, article_update_time, 
+      article_is_comment, article_status, article_order, 
+      article_content)
+    values (#{articleId}, #{articleBloggerId}, #{articleMenuId}, #{articleTitle}, 
+      #{articleTagIds}, #{articleViewCount}, #{articleCommentCount}, 
+      #{articleLikeCount}, #{articlePostTime}, #{articleUpdateTime}, 
+      #{articleIsComment}, #{articleStatus}, #{articleOrder}, 
+      #{articleContent})
+  </insert>
+  
+  <update id="updateById" parameterType="java.lang.Integer" >
+    update article
+    <set >
+      <if test="articleBloggerId != null" >
+        article_blogger_id = #{articleBloggerId},
+      </if>
+      <if test="articleMenuId != null" >
+        article_menu_id = #{articleMenuId},
+      </if>
+      <if test="articleTitle != null" >
+        article_title = #{articleTitle},
+      </if>
+      <if test="articleTagIds != null" >
+        article_tag_ids = #{articleTagIds},
+      </if>
+      <if test="articleViewCount != null" >
+        article_view_count = #{articleViewCount},
+      </if>
+      <if test="articleCommentCount != null" >
+        article_comment_count = #{articleCommentCount},
+      </if>
+      <if test="articleLikeCount != null" >
+        article_like_count = #{articleLikeCount},
+      </if>
+      <if test="articlePostTime != null" >
+        article_post_time = #{articlePostTime},
+      </if>
+      <if test="articleUpdateTime != null" >
+        article_update_time = #{articleUpdateTime},
+      </if>
+      <if test="articleIsComment != null" >
+        article_is_comment = #{articleIsComment},
+      </if>
+      <if test="articleStatus != null" >
+        article_status = #{articleStatus},
+      </if>
+      <if test="articleOrder != null" >
+        article_order = #{articleOrder},
+      </if>
+      <if test="articleContent != null" >
+        article_content = #{articleContent},
+      </if>
+    </set>
+    where article_id = #{articleId}
+  </update>
+  
+</mapper>
