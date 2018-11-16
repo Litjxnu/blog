@@ -1,71 +1,39 @@
-.w_main_left {
-	font: 12px "宋体", Arial, Helvetica, sans-serif;
-	color: #756F71;
+.w_list_overview{
+	margin: 0 15px;
 }
-.c_titile {
-	font-size: 22px;
-	margin: 20px 0;
-	text-align: center;
-	color: #333;
-	font-weight: bold;
+.w_thumbnail{
+	margin-bottom: 0px;
 }
-.box_c {
-	border: #ccc 1px dashed;
-	text-align: center;
-	padding: 5px 0;
-	margin-right: 30px;
-	color: #999;
+.w_article_item .w_thumbnail img{
+	width: 160px;
+	height: 160px;
 }
-.box_c span {
-	margin: 0 10px;
+.w_article_item .row{
+	position: relative;
 }
-.box_c span a {
-	color: #099;
-}
-ul {
-	list-style: none;
-}
-ul.infos {
-	overflow: hidden;
-	margin: 20px 30px 20px 0;
-	line-height: 28px;
-	font-size: 14px;
-	text-indent: 2em;
-	color: #666;
-}
-
-ul.infos p {
-	margin-bottom: 5px;
-}
-
-.keybq {
-	background: url(../img/tab.png) no-repeat 10px center #F8F8F8;
-	line-height: 30px;
-	height: 30px;
-	padding-left: 40px;
-	border: 1px solid #F0F0F0;
-}
-.keybq span {
-	color: #099;
-}
-.keybq .label{
-	margin-right: 10px;
-}
-.nextinfo {
-	margin: 25px 0px;
-	line-height: 20px;
-}
-.nextinfo .last{
-	width: 50%;
-	float: left;
-}
-
-.nextinfo .next{
-	width: 50%;
-	float: right;
+.count_r{
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
 	text-align: right;
-}
+	margin-right: 15px;
 
-.nextinfo a:hover{
-	color: #337AB7;
+}
+.w_article_item .panel-body{
+	box-shadow: 0px 8px 18px rgba(0,0,0,0.06);
+	transition: all .2s ease-out;
+}
+.w_article_item .panel-body:hover{
+	box-shadow: 0px 8px 18px rgba(0,0,0,0.15);
+	transition: all .2s ease-out;
+}
+.overView{
+	overflow:hidden; //超出的文本隐藏
+	text-overflow:ellipsis; //溢出用省略号显示
+	white-space:nowrap; //溢出不换行
+	/*overflow: hidden;
+	text-overflow: ellipsis;
+	display:-webkit-box; //作为弹性伸缩盒子模型显示。
+	-webkit-box-orient:vertical; //设置伸缩盒子的子元素排列方式--从上到下垂直排列
+	-webkit-line-clamp:2; //显示的行*/
 }

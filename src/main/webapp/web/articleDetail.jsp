@@ -10,7 +10,7 @@
 
 <link href="${pageContext.request.contextPath}/resource/assets/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/assets/css/common.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/assets/css/article.css"/>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resource/assets/css/article_detail.css"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resource/assets/plugin/jquery.page.css">
 <script src="${pageContext.request.contextPath}/resource/assets/plugin/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/resource/assets/plugin/bootstrap/js/bootstrap.min.js"></script>

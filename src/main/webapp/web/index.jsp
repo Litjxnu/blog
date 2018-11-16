@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="/WEB-INF/myTag.tld" prefix="filter" %>
 <!DOCTYPE html>
 <html>
 
@@ -102,7 +103,7 @@
 				  								<h4 class="media-heading">
 												  	<a class="title" href="${pageContext.request.contextPath}/article/${status.index }.do">${listArticle.articleTitle }</a>
 												</h4>
-												<p class="overView">${listArticle.articleContent }</p>
+												<p class="overView"><filter:htmlFilter>${listArticle.articleContent }</filter:htmlFilter>......</p>
 												<p class="count_r">
 													<span class="count"><i class="glyphicon glyphicon-user"></i><a href="#">${blogger.bloggerName }</a></span>
 													<span class="count"><i class="glyphicon glyphicon-eye-open"></i>浏览:${listArticle.articleViewCount }</span>
