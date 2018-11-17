@@ -21,39 +21,16 @@ import cn.jxnu.blog.service.ITagService;
 
 @Controller
 @RequestMapping("/menu")
-public class MenuController {
-	
-	@Autowired
-	private IMenuService menuService;
-	
-	@Autowired
-	private IArticleService articleService;
-	
-	@Autowired
-	private ITagService tagService;
-	
-	@Autowired
-	private IBloggerService bloggerService;
-	
-	@Autowired
-	private ILinkService linkService;
+public class MenuController extends BaseController{
 	
 	@RequestMapping("/{menuId}.do")
 	public String showMenu(@PathVariable("menuId") Integer menuId,ModelMap  modelMap) {
-		List<Article> dateArticles = articleService.selectByDate();
+		show(modelMap);
 		List<Menu> menus = menuService.selectMenus();
-		List<Tag> tags = tagService.selectTags();
 		List<Article> menuArticles = articleService.selectByMenuId(menuId);
-		List<Link> links =  linkService.selectAll();
-		Blogger blogger = bloggerService.selectMes();
-		
-		modelMap.addAttribute("dateArticles", dateArticles);
+
 		modelMap.addAttribute("menuArticles", menuArticles);
-		modelMap.addAttribute("tags", tags);
-		modelMap.addAttribute("links", links);
-		modelMap.addAttribute("menus", menus);
 		modelMap.addAttribute("menu", menus.get(menuId-1));
-		modelMap.addAttribute("blogger", blogger);
 		return "menuList";
 	}
 }
