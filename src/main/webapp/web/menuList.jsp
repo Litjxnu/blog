@@ -20,17 +20,12 @@
 <script src="${pageContext.request.contextPath}/resource/assets/js/common.js"></script>
 <!--<script src="js/snowy.js"></script>-->
 <script type="text/javascript">
-	
-$(function(){
-	$("#page").Page({
-	  totalPages: 3,//分页总数
-	  liNums: 3,//分页的数字按钮数(建议取奇数)
-	  activeClass: 'activP', //active 类样式定义
-	  callBack : function(page){
-			//console.log(page)
-	  }
-  });
-})
+    $(document).ready(function () {
+        $('.pagingUl li a').each(function () {
+            if ($($(this))[0].href == String(window.location))
+                $(this).addClass('activP');
+        });
+    })
 </script>
 
 <body>
@@ -72,40 +67,20 @@ $(function(){
 								</div>
 							</div>
 						</c:forEach>
-						
-						
-						<!--<div class="page">
-							<nav aria-label="Page navigation">
-						  <ul class="pagination">
-						    <li>
-						      <a href="#" aria-label="Previous">
-						        <span aria-hidden="true">&laquo;</span>
-						      </a>
-						    </li>
-						    <li class="active"><a href="#">1</a></li>
-						    <li><a href="#">2</a></li>
-						    <li><a href="#">3</a></li>
-						    <li><a href="#">4</a></li>
-						    <li><a href="#">5</a></li>
-						    <li>
-						      <a href="#" aria-label="Next">
-						        <span aria-hidden="true">&raquo;</span>
-						      </a>
-						    </li>
-						  </ul>
-						</nav>
-						</div>-->
+
 						<div id="page">
-							<div class="next fr">></div>
-							<div class="last fr">末页</div>
-							<ul class="pagingUl">
-								<li><a href="javascript:" class="activP">1</a></li>
-								<li><a href="javascript:">2</a></li>
-								<li><a href="javascript:">3</a></li>
-							</ul>
-							<div class="first fr">首页</div>
-							<div class="prv fr"><</div>
-						</div>
+						  <div class="next fr">
+							  <a href="?currPage=${pageUtil.currPage<pageUtil.totalPage?pageUtil.currPage+1:pageUtil.totalPage}">></a>
+						  </div>
+						  <ul class="pagingUl">
+							  <c:forEach begin="1" end="${pageUtil.totalPage}" var="i">
+								  <li><a href="?currPage=${i}">${i}</a></li>
+							  </c:forEach>
+						  </ul>
+						  <div class="prv fr">
+							  <a href="?currPage=${pageUtil.currPage>1?pageUtil.currPage-1:1}"><</a>
+						  </div>
+					  	</div>
 						
 					  </div>
 					</div>

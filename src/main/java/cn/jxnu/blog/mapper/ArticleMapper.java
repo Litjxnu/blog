@@ -13,7 +13,7 @@ public interface ArticleMapper {
 	List<Article> listArticle();
 
 	/**
-	 * 分页查询所有文章按浏览量排序
+	 * 分页查询文章按浏览量排序
 	 * @param map
 	 * @return
 	 */

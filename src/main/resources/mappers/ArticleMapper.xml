@@ -89,6 +89,10 @@
     	article 
     WHERE 
     	article_menu_id = #{articleMenuId}
+    <!--ORDER BY article_view_count DESC
+    <if test="start!=null and size!=null">
+      limit #{start},#{size}
+    </if>-->
   </select>
   
   <select id="selectById" resultType="cn.jxnu.blog.entity.Article" parameterType="java.lang.Integer" >

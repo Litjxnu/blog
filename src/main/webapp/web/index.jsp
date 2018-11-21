@@ -20,6 +20,14 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resource/assets/plugin/jquery.page.js"></script>
 	<script src="${pageContext.request.contextPath}/resource/assets/js/common.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resource/assets/plugin/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function () {
+            $('.pagingUl li a').each(function () {
+                if ($($(this))[0].href == String(window.location))
+                    $(this).addClass('activP');
+            });
+        })
+	</script>
 
 	<body>
 		<%@include file="Plugin/header.jsp"%>
@@ -129,13 +137,6 @@
 										<a href="?currPage=${pageUtil.currPage>1?pageUtil.currPage-1:1}"><</a>
 									</div>
 								</div>
-
-								<script>
-									$('#page ul li a').click(function(){
-										$(this).siblings().removeClass('activP');
-										$(this).addClass('activP');
-									})
-								</script>
 
 							</div>
 						</div>
