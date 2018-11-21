@@ -96,9 +96,16 @@ $(function(){
 						</nav>
 						</div>-->
 						<div id="page">
-							
+							<div class="next fr">></div>
+							<div class="last fr">末页</div>
+							<ul class="pagingUl">
+								<li><a href="javascript:" class="activP">1</a></li>
+								<li><a href="javascript:">2</a></li>
+								<li><a href="javascript:">3</a></li>
+							</ul>
+							<div class="first fr">首页</div>
+							<div class="prv fr"><</div>
 						</div>
-						
 						
 					  </div>
 					</div>

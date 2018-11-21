@@ -1,15 +1,29 @@
 package cn.jxnu.blog.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import cn.jxnu.blog.entity.Article;
 
 public interface ArticleMapper {
 	/**
-	 * 分页查询文章
+	 * 查询所有文章按浏览量排序
 	 * @return
 	 */
 	List<Article> listArticle();
+
+	/**
+	 * 分页查询所有文章按浏览量排序
+	 * @param map
+	 * @return
+	 */
+	List<Article> selectByPage(HashMap<String,Object> map);
+
+	/**
+	 * 查询文章总数
+	 * @return
+	 */
+	Integer articleCount();
 	
 	/**
 	 * 按时间先后查询文章

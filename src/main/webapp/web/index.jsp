@@ -91,7 +91,7 @@
 							<div class="panel-body contentList">
 
 								<!--文章列表开始-->
-								<c:forEach var="listArticle" items="${listArticles }" varStatus="status">
+								<c:forEach var="listArticle" items="${pageUtil.lists }" varStatus="status">
 									<div class="panel panel-default w_article_item">
 										<div class="panel-body" style="height:200px;">
 											<div class="row" style="height:170px;">
@@ -115,6 +115,27 @@
 									</div>
 								</c:forEach>
 								<!--文章列表结束-->
+
+								<div id="page">
+									<div class="next fr">
+										<a href="?currPage=${pageUtil.currPage<pageUtil.totalPage?pageUtil.currPage+1:pageUtil.totalPage}">></a>
+									</div>
+									<ul class="pagingUl">
+										<c:forEach begin="1" end="${pageUtil.totalPage}" var="i">
+											<li><a href="?currPage=${i}">${i}</a></li>
+										</c:forEach>
+									</ul>
+									<div class="prv fr">
+										<a href="?currPage=${pageUtil.currPage>1?pageUtil.currPage-1:1}"><</a>
+									</div>
+								</div>
+
+								<script>
+									$('#page ul li a').click(function(){
+										$(this).siblings().removeClass('activP');
+										$(this).addClass('activP');
+									})
+								</script>
 
 							</div>
 						</div>

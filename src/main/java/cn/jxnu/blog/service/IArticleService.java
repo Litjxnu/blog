@@ -1,8 +1,10 @@
 package cn.jxnu.blog.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import cn.jxnu.blog.entity.Article;
+import cn.jxnu.blog.util.PageUtil;
 
 public interface IArticleService {
 	/**
@@ -10,6 +12,19 @@ public interface IArticleService {
 	 * @return
 	 */
 	List<Article> listArticle();
+
+	/**
+	 * 分页查询所有文章按浏览量排序
+	 * @param currPage 当前页数
+	 * @return
+	 */
+	PageUtil<Article> selectByPage(int currPage);
+
+	/**
+	 * 查询文章总数
+	 * @return
+	 */
+	Integer articleCount();
 	
 	/**
 	 * 按时间先后查询文章
