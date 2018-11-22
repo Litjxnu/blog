@@ -11,7 +11,19 @@
     FROM 
     	menu
   </select>
-  
+
+  <select id="selectMenuById" resultType="cn.jxnu.blog.entity.Menu" parameterType="java.lang.Integer">
+    SELECT
+    	menu_id menuId,
+    	menu_name menuName,
+    	menu_status menuStatus,
+    	menu_url menuUrl
+    FROM
+    	menu
+    WHERE
+        menu_id = #{menuId}
+  </select>
+
   <delete id="deleteById" parameterType="java.lang.Integer" >
     delete from menu
     where menu_id = #{menuId}

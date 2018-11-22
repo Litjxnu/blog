@@ -25,7 +25,7 @@
 				
 				<ol class="breadcrumb w_breadcrumb">
 				  <li><a href="${pageContext.request.contextPath}/index.do">首页</a></li>
-				  <%-- <li><a href="${pageContext.request.contextPath}/${menu.menuUrl }">${menu.menuName }</a></li> --%>
+				  <li><a href="${pageContext.request.contextPath}/${menu.menuUrl }">${menu.menuName }</a></li>
 				  <li class="active">${article.articleTitle }</li>
 				  <span class="w_navbar_tip">长路漫漫，只因学无止境。</span>
 				</ol>

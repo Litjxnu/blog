@@ -21,10 +21,17 @@ public interface IMenuService {
     
     /**
      * 查找多个标签
-     * @param menuId
+     * @param
      * @return
      */
     List<Menu> selectMenus();
+
+    /**
+     * 根据id查找menu
+     * @param menuId
+     * @return
+     */
+    Menu selectMenuById(Integer menuId);
     
     /**
      * 修改便签

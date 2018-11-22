@@ -22,11 +22,15 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resource/assets/plugin/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
         $(document).ready(function () {
+            var status = false;
             $('.pagingUl li a').each(function () {
-                if ($($(this))[0].href == String(window.location))
+                if(this.href == window.location.href){
                     $(this).addClass('activP');
+                    status = true;
+                }
             });
-        })
+            if(!status) {$('.pagingUl li a').eq(0).addClass('activP');}
+        });
 	</script>
 
 	<body>

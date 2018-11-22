@@ -26,6 +26,10 @@ public class MenuServiceImpl implements IMenuService{
 		return menuMapper.selectMenus();
 	}
 
+	public Menu selectMenuById(Integer menuId) {
+		return menuMapper.selectMenuById(menuId);
+	}
+
 	public Integer updateById(Integer menuId) {
 		return menuMapper.updateById(menuId);
 	}
