@@ -28,6 +28,7 @@ public class IndexController extends BaseController{
 		//分页数据
 		PageUtil<Article> pageUtil = articleService.selectByPage(currPage);
 		modelMap.addAttribute("pageUtil", pageUtil);
+		modelMap.addAttribute("max", articleService.articleCount()-1);
 		return "index";
 	}
 

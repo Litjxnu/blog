@@ -31,6 +31,12 @@ public interface IArticleService {
 	 * @return
 	 */
 	List<Article> selectByDate();
+
+	//获得上一篇文章
+	Article getNextArticle(Integer articleId);
+
+	//获得下一篇文章
+	Article getPrvArticle(Integer articleId);
 	
 	/**
 	 * 根据分类栏查找文章

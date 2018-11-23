@@ -67,25 +67,25 @@ a {
     margin-right: 10px;
 }
 
-/*.first,*/
-/*.last {*/
-    /*!*width: 30px;*!*/
-    /*height: 30px;*/
-    /*font-size: 12px;*/
-    /*text-align: center;*/
-    /*line-height: 30px;*/
-    /*!*border: 1px solid #ddd;*!*/
-    /*cursor: pointer;*/
-    /*background: #fff;*/
-    /*padding: 0 5px;*/
-    /*border-radius: 5px;*/
-    /*margin-right: 10px;*/
-/*}*/
+/*.first,
+.last {
+    !*width: 30px;*!
+    height: 30px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 30px;
+    !*border: 1px solid #ddd;*!
+    cursor: pointer;
+    background: #fff;
+    padding: 0 5px;
+    border-radius: 5px;
+    margin-right: 10px;
+}*/
 
 .prv:hover,
 .next:hover,
-/*.first:hover,*/
-/*.last:hover,*/
+/*.first:hover,
+.last:hover,*/
 .pagingUl li a:hover,
 .activP {
     background-color: #000!important;

@@ -73,6 +73,20 @@ public class ArticleServiceImpl implements IArticleService{
 		return articleMapper.selectByDate();
 	}
 
+	public Article getNextArticle(Integer articleId) {
+		if (articleId == 0||articleId<articleMapper.articleCount()-1){
+			return articleMapper.selectById(articleId+2);
+		}
+		return null;
+	}
+
+	public Article getPrvArticle(Integer articleId) {
+		if (articleId == (articleMapper.articleCount()-1)||articleId>0){
+			return articleMapper.selectById(articleId);
+		}
+		return null;
+	}
+
 	public List<Article> selectByMenuId(Integer menuId) {
 		return articleMapper.selectByMenuId(menuId);
 	}

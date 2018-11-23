@@ -42,19 +42,19 @@
 							<ul class="infos">
 								${article.articleContent }
 							</ul>
-															
+
 							<div class="keybq">
 						    	<p><span>标签</span>：
 						    		<a class="label label-default">java</a>
-						    	</p>    
+						    	</p>
 						    </div>
-							
-							
-							<!-- <div class="nextinfo">
-								<p class="last">上一篇：<a href="#">免费收录网站搜索引擎登录口大全</a></p>
-								<p class="next">下一篇：<a href="#">javascript显示年月日时间代码</a></p>
-						    </div> -->
-							
+
+
+							<div class="nextinfo">
+									<p class="nextArt">下一篇：<a href="${pageContext.request.contextPath}/article/${articleId+1}.do">${nextArticle.articleTitle}</a></p>
+									<p class="lastArt">上一篇：<a href="${pageContext.request.contextPath}/article/${articleId-1}.do">${prvArticle.articleTitle}</a></p>
+						    </div>
+
 						</div>
 					</div>
 					

@@ -113,7 +113,7 @@
 													</a>
 												</div>
 				  								<h4 class="media-heading">
-												  	<a class="title" href="${pageContext.request.contextPath}/article/${status.index }.do">${listArticle.articleTitle }</a>
+												  	<a class="title" href="${pageContext.request.contextPath}/article/${(pageUtil.currPage-1)*pageUtil.pageSize + status.index }.do">${listArticle.articleTitle }</a>
 												</h4>
 												<p class="overView"><filter:htmlFilter>${listArticle.articleContent }</filter:htmlFilter>......</p>
 												<p class="count_r">

@@ -55,12 +55,12 @@ ul.infos p {
 	margin: 25px 0px;
     line-height: 20px;
 }
-.nextinfo .last{
+.nextinfo .lastArt{
 	width: 50%;
     float: left;
 }
 
-.nextinfo .next{
+.nextinfo .nextArt{
     width: 50%;
     float: right;
     text-align: right;

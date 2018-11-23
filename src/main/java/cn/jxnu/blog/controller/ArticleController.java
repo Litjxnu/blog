@@ -21,9 +21,15 @@ public class ArticleController extends BaseController{
 		show(modelMap);
 		List<Article> listArticles = articleService.listArticle();
 		Article article = listArticles.get(articleId);
+        Article nextArticle = articleService.getNextArticle(articleId);
+        Article prvArticle = articleService.getPrvArticle(articleId);
 
 		modelMap.addAttribute("listArticles", listArticles);
 		modelMap.addAttribute("article", article);
+		modelMap.addAttribute("articleId", articleId);
+		modelMap.addAttribute("nextArticle", nextArticle);
+		modelMap.addAttribute("prvArticle", prvArticle);
+		modelMap.addAttribute("max", articleService.articleCount()-1);
 		modelMap.addAttribute("menu", menuService.selectMenuById(article.getArticleMenuId()));
 		return "articleDetail";
 	}
